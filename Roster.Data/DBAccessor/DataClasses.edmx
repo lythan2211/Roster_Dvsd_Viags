@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dqs_test_20170804Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_Emp_Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Code" Type="bigint" Nullable="false" />
+          <Property Name="FK_sEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="bBXE" Type="bit" />
+          <Property Name="bBXM" Type="bit" />
+          <Property Name="bBXL" Type="bit" />
+          <Property Name="bCCH" Type="bit" />
+          <Property Name="bCDU" Type="bit" />
+          <Property Name="bWGD" Type="bit" />
+          <Property Name="bBTA" Type="bit" />
+          <Property Name="bDKE" Type="bit" />
+          <Property Name="bXNG" Type="bit" />
+          <Property Name="bXNM" Type="bit" />
+          <Property Name="bXNL" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_Flight_Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ARR_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DEP_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AIRLINE_COMPANY_ID" Type="int" />
+          <Property Name="AIRLINE_COMPANY_CODE" Type="char" MaxLength="20" />
+          <Property Name="ARR_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="DEP_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="FLT_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="AIRCRAFT" Type="varchar" MaxLength="20" />
+          <Property Name="REGISTER" Type="varchar" MaxLength="20" />
+          <Property Name="ROUTE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ETA" Type="varchar" MaxLength="10" />
+          <Property Name="STA" Type="varchar" MaxLength="10" />
+          <Property Name="ATA" Type="varchar" MaxLength="10" />
+          <Property Name="ETD" Type="varchar" MaxLength="10" />
+          <Property Name="STD" Type="varchar" MaxLength="10" />
+          <Property Name="ATD" Type="varchar" MaxLength="10" />
+          <Property Name="FLIGHT_DAY" Type="datetime" />
+          <Property Name="PARKING_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="ARR_REMARK" Type="varchar" MaxLength="10" />
+          <Property Name="DEP_REMARK" Type="varchar" MaxLength="200" />
+          <Property Name="ARR_QTQN" Type="varchar" MaxLength="10" />
+          <Property Name="DEP_QTQN" Type="varchar" MaxLength="10" />
+          <Property Name="PC1" Type="nvarchar" MaxLength="50" />
+          <Property Name="PC2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="nvarchar" MaxLength="10" />
+          <Property Name="Belt" Type="nvarchar" MaxLength="5" />
+          <Property Name="tmpLT_STA" Type="datetime" />
+          <Property Name="tmpLT_STD" Type="datetime" />
+          <Property Name="CHANGED_STATUS" Type="int" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_ProductList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Code" Type="bigint" Nullable="false" />
+          <Property Name="sProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sProductName" Type="nvarchar" MaxLength="100" />
+          <Property Name="sShortName" Type="nvarchar" MaxLength="10" />
+          <Property Name="FK_sAirline" Type="varchar" MaxLength="2" />
+          <Property Name="sAC" Type="varchar" MaxLength="6" />
+          <Property Name="sLoadProperty" Type="varchar" MaxLength="1" />
+          <Property Name="sCarry" Type="varchar" MaxLength="1" />
+          <Property Name="iArrDep" Type="tinyint" />
+          <Property Name="sDomInt" Type="varchar" MaxLength="6" />
+          <Property Name="sTimeBase" Type="varchar" MaxLength="3" />
+          <Property Name="iStartTime" Type="smallint" />
+          <Property Name="iDuringTime" Type="tinyint" />
+          <Property Name="iManQuota" Type="tinyint" />
+          <Property Name="eMinutesOnePerson" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="iUnitPrice" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="dqs_test_20170804ModelStoreContainer">
+          <EntitySet Name="TBL_Emp_Skill" EntityType="Self.TBL_Emp_Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Flight_Schedule" EntityType="Self.TBL_Flight_Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ProductList" EntityType="Self.TBL_ProductList" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dqs_test_20170804Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataClassesDataContext" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="Cefiticate" ReturnType="Collection(dqs_test_20170804Model.Cefiticate_Result)" />
+          <FunctionImport Name="UpdateAirlinescode" />
+          <FunctionImport Name="UpdateAirlinescodeC" />
+          <EntitySet Name="TBL_Emp_Skill" EntityType="dqs_test_20170804Model.TBL_Emp_Skill" />
+          <EntitySet Name="TBL_Flight_Schedule" EntityType="dqs_test_20170804Model.TBL_Flight_Schedule" />
+          <EntitySet Name="TBL_ProductList" EntityType="dqs_test_20170804Model.TBL_ProductList" />
+          </EntityContainer>
+        <ComplexType Name="Cefiticate_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Gender" Nullable="true" />
+          <Property Type="String" Name="Position" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Mobile" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TBL_Emp_Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Code" Type="Int64" Nullable="false" />
+          <Property Name="FK_sEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bBXE" Type="Boolean" />
+          <Property Name="bBXM" Type="Boolean" />
+          <Property Name="bBXL" Type="Boolean" />
+          <Property Name="bCCH" Type="Boolean" />
+          <Property Name="bCDU" Type="Boolean" />
+          <Property Name="bWGD" Type="Boolean" />
+          <Property Name="bBTA" Type="Boolean" />
+          <Property Name="bDKE" Type="Boolean" />
+          <Property Name="bXNG" Type="Boolean" />
+          <Property Name="bXNM" Type="Boolean" />
+          <Property Name="bXNL" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_Flight_Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ARR_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DEP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AIRLINE_COMPANY_ID" Type="Int32" />
+          <Property Name="AIRLINE_COMPANY_CODE" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="ARR_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DEP_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FLT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AIRCRAFT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REGISTER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ROUTE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ETA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ATA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ETD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ATD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FLIGHT_DAY" Type="DateTime" Precision="3" />
+          <Property Name="PARKING_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ARR_REMARK" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DEP_REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ARR_QTQN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DEP_QTQN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PC1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PC2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Belt" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="tmpLT_STA" Type="DateTime" Precision="3" />
+          <Property Name="tmpLT_STD" Type="DateTime" Precision="3" />
+          <Property Name="CHANGED_STATUS" Type="Int32" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_ProductList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Code" Type="Int64" Nullable="false" />
+          <Property Name="sProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FK_sAirline" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="sAC" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="sLoadProperty" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="sCarry" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="iArrDep" Type="Byte" />
+          <Property Name="sDomInt" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="sTimeBase" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="iStartTime" Type="Int16" />
+          <Property Name="iDuringTime" Type="Byte" />
+          <Property Name="iManQuota" Type="Byte" />
+          <Property Name="eMinutesOnePerson" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="iUnitPrice" Type="Int64" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dqs_test_20170804ModelStoreContainer" CdmEntityContainer="DataClassesDataContext">
+          <EntitySetMapping Name="TBL_Emp_Skill">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.TBL_Emp_Skill">
+              <MappingFragment StoreEntitySet="TBL_Emp_Skill">
+                <ScalarProperty Name="bXNL" ColumnName="bXNL" />
+                <ScalarProperty Name="bXNM" ColumnName="bXNM" />
+                <ScalarProperty Name="bXNG" ColumnName="bXNG" />
+                <ScalarProperty Name="bDKE" ColumnName="bDKE" />
+                <ScalarProperty Name="bBTA" ColumnName="bBTA" />
+                <ScalarProperty Name="bWGD" ColumnName="bWGD" />
+                <ScalarProperty Name="bCDU" ColumnName="bCDU" />
+                <ScalarProperty Name="bCCH" ColumnName="bCCH" />
+                <ScalarProperty Name="bBXL" ColumnName="bBXL" />
+                <ScalarProperty Name="bBXM" ColumnName="bBXM" />
+                <ScalarProperty Name="bBXE" ColumnName="bBXE" />
+                <ScalarProperty Name="FK_sEmpID" ColumnName="FK_sEmpID" />
+                <ScalarProperty Name="ID_Code" ColumnName="ID_Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Flight_Schedule">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.TBL_Flight_Schedule">
+              <MappingFragment StoreEntitySet="TBL_Flight_Schedule">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="CHANGED_STATUS" ColumnName="CHANGED_STATUS" />
+                <ScalarProperty Name="tmpLT_STD" ColumnName="tmpLT_STD" />
+                <ScalarProperty Name="tmpLT_STA" ColumnName="tmpLT_STA" />
+                <ScalarProperty Name="Belt" ColumnName="Belt" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="PC2" ColumnName="PC2" />
+                <ScalarProperty Name="PC1" ColumnName="PC1" />
+                <ScalarProperty Name="DEP_QTQN" ColumnName="DEP_QTQN" />
+                <ScalarProperty Name="ARR_QTQN" ColumnName="ARR_QTQN" />
+                <ScalarProperty Name="DEP_REMARK" ColumnName="DEP_REMARK" />
+                <ScalarProperty Name="ARR_REMARK" ColumnName="ARR_REMARK" />
+                <ScalarProperty Name="PARKING_CODE" ColumnName="PARKING_CODE" />
+                <ScalarProperty Name="FLIGHT_DAY" ColumnName="FLIGHT_DAY" />
+                <ScalarProperty Name="ATD" ColumnName="ATD" />
+                <ScalarProperty Name="STD" ColumnName="STD" />
+                <ScalarProperty Name="ETD" ColumnName="ETD" />
+                <ScalarProperty Name="ATA" ColumnName="ATA" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="ROUTE" ColumnName="ROUTE" />
+                <ScalarProperty Name="REGISTER" ColumnName="REGISTER" />
+                <ScalarProperty Name="AIRCRAFT" ColumnName="AIRCRAFT" />
+                <ScalarProperty Name="FLT_NO" ColumnName="FLT_NO" />
+                <ScalarProperty Name="DEP_NO" ColumnName="DEP_NO" />
+                <ScalarProperty Name="ARR_NO" ColumnName="ARR_NO" />
+                <ScalarProperty Name="AIRLINE_COMPANY_CODE" ColumnName="AIRLINE_COMPANY_CODE" />
+                <ScalarProperty Name="AIRLINE_COMPANY_ID" ColumnName="AIRLINE_COMPANY_ID" />
+                <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+                <ScalarProperty Name="ARR_ID" ColumnName="ARR_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ProductList">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.TBL_ProductList">
+              <MappingFragment StoreEntitySet="TBL_ProductList">
+                <ScalarProperty Name="iUnitPrice" ColumnName="iUnitPrice" />
+                <ScalarProperty Name="eMinutesOnePerson" ColumnName="eMinutesOnePerson" />
+                <ScalarProperty Name="iManQuota" ColumnName="iManQuota" />
+                <ScalarProperty Name="iDuringTime" ColumnName="iDuringTime" />
+                <ScalarProperty Name="iStartTime" ColumnName="iStartTime" />
+                <ScalarProperty Name="sTimeBase" ColumnName="sTimeBase" />
+                <ScalarProperty Name="sDomInt" ColumnName="sDomInt" />
+                <ScalarProperty Name="iArrDep" ColumnName="iArrDep" />
+                <ScalarProperty Name="sCarry" ColumnName="sCarry" />
+                <ScalarProperty Name="sLoadProperty" ColumnName="sLoadProperty" />
+                <ScalarProperty Name="sAC" ColumnName="sAC" />
+                <ScalarProperty Name="FK_sAirline" ColumnName="FK_sAirline" />
+                <ScalarProperty Name="sShortName" ColumnName="sShortName" />
+                <ScalarProperty Name="sProductName" ColumnName="sProductName" />
+                <ScalarProperty Name="sProductCode" ColumnName="sProductCode" />
+                <ScalarProperty Name="ID_Code" ColumnName="ID_Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
